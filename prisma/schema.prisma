@@ -1,0 +1,96 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  content   String?
+  published Boolean  @default(false)
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Admissions / general enquiries submitted from the website contact form
+model Enquiry {
+  id         String   @id @default(cuid())
+  name       String
+  email      String
+  phone      String
+  discipline String?
+  message    String?
+  status     String   @default("new") // new | contacted | closed
+  createdAt  DateTime @default(now())
+}
+
+// Newsletter / notices subscribers (parents, community, partners)
+model NewsletterSubscriber {
+  id       String  @id @default(cuid())
+  email    String  @unique
+  source   String  @default("footer")
+  audience String  @default("parent") // parent | alumni | artist | educator
+  createdAt DateTime @default(now())
+}
+
+// Events, notices and press items rendered in the "News & Events" section.
+// Served to the client via GET /api/events — content is managed as data, not markup.
+model SchoolEvent {
+  id         String   @id @default(cuid())
+  slug       String   @unique
+  title      String
+  summary    String
+  category   String   @default("event") // event | news
+  status     String   @default("upcoming") // upcoming | admissions | past | press
+  tone       String   @default("gold") // gold | crimson (badge accent)
+  dateISO    String? // ISO date for the calendar badge; null => news item
+  venue      String?
+  ctaLabel   String?
+  ctaHref    String? // optional external URL (opens in new tab); null => smart in-page scroll
+  sourceNote String? // governance note, e.g. "Quicket listing · verified Sep 2026"
+  sortOrder  Int      @default(0)
+  published  Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+// Alumni story submissions — moderated before any public display.
+model AlumniStory {
+  id         String   @id @default(cuid())
+  name       String
+  email      String
+  cohort     String // matric year or "current learner"
+  discipline String
+  path       String? // what they went on to do after ERSA
+  story      String
+  status     String   @default("new") // new | approved | archived
+  createdAt  DateTime @default(now())
+}
+
+// Anonymous discipline-finder results — a tally only, no PII. Lets the school
+// see which disciplines draw the most curiosity on the website. One row per
+// completed quiz; nothing about the visitor is stored.
+model FinderResult {
+  id         String   @id @default(cuid())
+  discipline String // visual-arts | design | drama | dance | music
+  createdAt  DateTime @default(now())
+}

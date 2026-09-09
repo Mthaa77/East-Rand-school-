@@ -1,0 +1,664 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-fraunces);
+  --font-editorial: var(--font-newsreader);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 14px);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ─── ERSA design tokens ─────────────────────────────────────────────── */
+@theme {
+  /* Deep warm charcoal / ink (stage darkness) */
+  --color-ink-950: oklch(0.135 0.008 65);
+  --color-ink-900: oklch(0.165 0.01 65);
+  --color-ink-800: oklch(0.215 0.012 65);
+  --color-ink-700: oklch(0.285 0.014 65);
+  --color-ink-600: oklch(0.36 0.016 65);
+
+  /* Warm paper (gallery walls) */
+  --color-paper: oklch(0.968 0.008 85);
+  --color-paper-200: oklch(0.938 0.012 85);
+  --color-paper-300: oklch(0.898 0.016 85);
+
+  /* Spotlight gold */
+  --color-gold-200: oklch(0.92 0.06 90);
+  --color-gold-300: oklch(0.87 0.095 86);
+  --color-gold-400: oklch(0.82 0.125 82);
+  --color-gold-500: oklch(0.76 0.14 76);
+  --color-gold-600: oklch(0.66 0.13 70);
+  --color-gold-700: oklch(0.55 0.11 65);
+
+  /* Stage crimson (secondary accent) — extended into a full blazer-red ramp.
+     300 = bright “school blazer” red for dark grounds · 700 = deep curtain red
+     for light grounds and gradient feet. */
+  --color-crimson-300: oklch(0.68 0.2 30);
+  --color-crimson-400: oklch(0.62 0.17 32);
+  --color-crimson-500: oklch(0.55 0.18 30);
+  --color-crimson-600: oklch(0.47 0.16 29);
+  --color-crimson-700: oklch(0.38 0.14 28);
+
+  /* Snow — the crisp white of the school shirt and gallery walls.
+     Cooler and brighter than warm paper; reserved for high-contrast
+     white sections and cards that should read as “dress whites”. */
+  --color-snow: oklch(0.995 0.004 95);
+  --color-snow-200: oklch(0.975 0.006 95);
+
+  /* ── Fluid display type scale (Fraunces) ──
+     Six steps from cinematic statement to card heading. Each step carries its
+     own line-height + tracking so headlines tighten as they grow. */
+  --text-display-3xl: clamp(3.4rem, 2.6rem + 5.2vw, 9.5rem);
+  --text-display-3xl--line-height: 0.95;
+  --text-display-3xl--letter-spacing: -0.03em;
+  --text-display-2xl: clamp(2.85rem, 4.6rem + 3.4vw, 7.1rem);
+  --text-display-2xl--line-height: 0.98;
+  --text-display-2xl--letter-spacing: -0.026em;
+  --text-display-xl: clamp(2.6rem, 7.2vw, 6.2rem);
+  --text-display-xl--line-height: 1.02;
+  --text-display-xl--letter-spacing: -0.024em;
+  --text-display-lg: clamp(2.1rem, 5.4vw, 4.4rem);
+  --text-display-lg--line-height: 1.12;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-md: clamp(1.75rem, 3.6vw, 2.9rem);
+  --text-display-md--line-height: 1.15;
+  --text-display-md--letter-spacing: -0.015em;
+  --text-display-sm: clamp(1.35rem, 2.4vw, 1.9rem);
+  --text-display-sm--line-height: 1.2;
+  --text-display-sm--letter-spacing: -0.01em;
+
+  /* ── Fluid reading sizes (editorial serif + UI ledes) ── */
+  --text-lede: clamp(1.05rem, 0.97rem + 0.35vw, 1.3rem);
+  --text-lede--line-height: 1.66;
+  --text-editorial: clamp(1.125rem, 1.02rem + 0.45vw, 1.4375rem);
+  --text-editorial--line-height: 1.72;
+
+  /* ── Layered shadow system (soft, warm, stage-lit) ── */
+  --shadow-card:
+    0 1px 2px oklch(0.135 0.008 65 / 0.22),
+    0 10px 28px -14px oklch(0.135 0.008 65 / 0.4);
+  --shadow-lift:
+    0 2px 4px oklch(0.135 0.008 65 / 0.2),
+    0 22px 48px -20px oklch(0.135 0.008 65 / 0.5);
+  --shadow-photo:
+    0 2px 6px oklch(0.135 0.008 65 / 0.28),
+    0 32px 64px -26px oklch(0.135 0.008 65 / 0.55);
+  --shadow-frame:
+    0 1px 2px oklch(0.135 0.008 65 / 0.18),
+    0 18px 40px -18px oklch(0.55 0.11 65 / 0.45);
+  --shadow-glow:
+    0 0 44px -8px oklch(0.82 0.125 82 / 0.5);
+  --shadow-glow-red:
+    0 0 48px -10px oklch(0.55 0.18 30 / 0.55);
+  /* ── Elevation ladder (depth system) ──
+     panel: mid-layer floating surface · float: topmost layer (chips, popovers) */
+  --shadow-panel:
+    0 1px 1px oklch(0.135 0.008 65 / 0.14),
+    0 12px 32px -16px oklch(0.135 0.008 65 / 0.46),
+    0 32px 72px -32px oklch(0.135 0.008 65 / 0.5);
+  --shadow-float:
+    0 2px 4px oklch(0.135 0.008 65 / 0.2),
+    0 18px 44px -16px oklch(0.135 0.008 65 / 0.55),
+    0 48px 96px -40px oklch(0.135 0.008 65 / 0.6),
+    0 0 0 1px oklch(1 0 0 / 6%);
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee-slow: marquee 70s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-soft: float-soft 9s ease-in-out infinite;
+  --animate-pulse-dot: pulse-dot 2.4s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.8s linear infinite;
+  --animate-spin-slow: spin 26s linear infinite;
+  --animate-breathe: breathe 9s ease-in-out infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(-16px) translateX(6px);
+    }
+  }
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.45;
+      transform: scale(0.8);
+    }
+  }
+  @keyframes shimmer {
+    from {
+      background-position: -200% 0;
+    }
+    to {
+      background-position: 200% 0;
+    }
+  }
+  /* Slow ambient drift for depth orbs (small translate + scale breathing) */
+  @keyframes float-soft {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(10px, -22px, 0) scale(1.06);
+    }
+  }
+  /* Glow breathing for ambient orbs */
+  @keyframes breathe {
+    0%,
+    100% {
+      opacity: 0.55;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.135 0.008 65);
+  --foreground: oklch(0.968 0.008 85);
+  --card: oklch(0.165 0.01 65);
+  --card-foreground: oklch(0.968 0.008 85);
+  --popover: oklch(0.165 0.01 65);
+  --popover-foreground: oklch(0.968 0.008 85);
+  --primary: oklch(0.76 0.14 76);
+  --primary-foreground: oklch(0.135 0.008 65);
+  --secondary: oklch(0.215 0.012 65);
+  --secondary-foreground: oklch(0.968 0.008 85);
+  --muted: oklch(0.215 0.012 65);
+  --muted-foreground: oklch(0.68 0.012 75);
+  --accent: oklch(0.215 0.012 65);
+  --accent-foreground: oklch(0.968 0.008 85);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.76 0.14 76);
+  --chart-1: oklch(0.76 0.14 76);
+  --chart-2: oklch(0.62 0.17 32);
+  --chart-3: oklch(0.87 0.095 86);
+  --chart-4: oklch(0.66 0.13 70);
+  --chart-5: oklch(0.55 0.18 30);
+  --sidebar: oklch(0.165 0.01 65);
+  --sidebar-foreground: oklch(0.968 0.008 85);
+  --sidebar-primary: oklch(0.76 0.14 76);
+  --sidebar-primary-foreground: oklch(0.135 0.008 65);
+  --sidebar-accent: oklch(0.215 0.012 65);
+  --sidebar-accent-foreground: oklch(0.968 0.008 85);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.76 0.14 76);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    /* framer-motion's useScroll({ target }) measures against the scroll container
+       and warns in dev when it is position:static — keep html non-static. */
+    position: relative;
+  }
+  body {
+    @apply bg-ink-950 text-paper font-sans antialiased;
+    font-feature-settings: "liga" on, "calt" on;
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+  }
+  /* Fraunces axes: soft terminals for display cuts, optical sizing always on.
+     Italic accents get full SOFT + WONK — the handwritten-flourish voice.
+     At hero sizes the optical-size axis runs free and WONK 1 gives the
+     wordmark its slightly eccentric stage presence. */
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 34, "WONK" 0;
+  }
+  .font-display em,
+  .font-display i {
+    font-variation-settings: "SOFT" 78, "WONK" 1;
+  }
+  /* The editorial serif sets its own optical size + a whisper of tracking */
+  .font-editorial {
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 16;
+  }
+  .font-editorial em,
+  .font-editorial i {
+    font-style: italic;
+  }
+  .font-mono {
+    font-feature-settings: "zero" on;
+  }
+  ::selection {
+    background: oklch(0.76 0.14 76 / 90%);
+    color: oklch(0.135 0.008 65);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+  /* Even rag on editorial body copy (progressive enhancement) */
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 2px solid oklch(0.82 0.125 82);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ─── Custom scrollbar ───────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.165 0.01 65);
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.36 0.016 65);
+  border-radius: 8px;
+  border: 2px solid oklch(0.165 0.01 65);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.55 0.11 65);
+}
+
+/* ─── Editorial utilities ────────────────────────────────────────────── */
+/* Long-form editorial voice — Newsreader, sized for comfortable reading.
+   Apply to story paragraphs, ledes and manifesto copy. */
+.editorial {
+  font-family: var(--font-newsreader);
+  font-optical-sizing: auto;
+  font-size: var(--text-editorial);
+  line-height: 1.72;
+  letter-spacing: 0.001em;
+}
+
+/* Pull-quote — editorial serif italic with hanging punctuation for the
+   opening quotation mark, so the glyph hangs into the margin. */
+.pull-quote {
+  font-family: var(--font-newsreader);
+  font-optical-sizing: auto;
+  font-style: italic;
+  font-weight: 420;
+  hanging-punctuation: first;
+}
+
+/* Stat numerals — Fraunces display cut with softened terminals so figures
+   feel engraved, not typed. Pair with .tabular for alignment. */
+.stat-figure {
+  font-family: var(--font-fraunces);
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 62, "WONK" 0;
+}
+
+/* The wonk cut — Fraunces with the WONK axis switched on for expressive,
+   slightly askew italics: roman numerals, act titles, stage-voice asides.
+   Pair with font-display + italic. */
+.font-display-wonk {
+  font-variation-settings: "SOFT" 60, "WONK" 1;
+}
+
+/* Animated gold underline for inline editorial links (a11y-safe: visible
+   at rest, warms on hover, respects large text offsets). */
+.link-editorial {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-color: oklch(0.76 0.14 76 / 45%);
+  transition: text-decoration-color 0.3s ease, color 0.3s ease;
+}
+.link-editorial:hover {
+  text-decoration-color: var(--color-gold-500);
+  color: var(--color-gold-600);
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+/* Photo frames — rounded editorial windows with inner hairline + top light edge */
+.photo-frame {
+  @apply overflow-hidden rounded-3xl shadow-photo;
+}
+.photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px oklch(0.968 0.008 85 / 12%),
+    inset 0 1px 0 oklch(0.968 0.008 85 / 16%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── Depth & layering utilities ─────────────────────────────────────── */
+
+/* Premium glass surface — warm smoked glass with a lit top edge. */
+.glass {
+  background: linear-gradient(
+    145deg,
+    oklch(0.968 0.008 85 / 8%),
+    oklch(0.968 0.008 85 / 3%) 38%,
+    oklch(0.165 0.01 65 / 42%)
+  );
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  backdrop-filter: blur(18px) saturate(1.35);
+  border: 1px solid oklch(0.968 0.008 85 / 14%);
+  box-shadow:
+    inset 0 1px 0 oklch(0.968 0.008 85 / 18%),
+    inset 0 -1px 0 oklch(0.135 0.008 65 / 22%),
+    var(--shadow-panel);
+}
+
+/* Single top light edge for cards (the “studio light from above” cue). */
+.sheen-top {
+  position: relative;
+}
+.sheen-top::before {
+  content: "";
+  position: absolute;
+  inset: 0 12% auto 12%;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    oklch(0.968 0.008 85 / 22%),
+    transparent
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Mouse-tracked spotlight layers, driven by --sx / --sy / --sopacity
+   (set from JS in <SpotlightCard>). Pure CSS-var plumbing — no re-renders. */
+.spotlight-glow {
+  background: radial-gradient(
+    300px circle at var(--sx, 50%) var(--sy, 50%),
+    oklch(0.82 0.125 82 / 0.11),
+    transparent 68%
+  );
+}
+.spotlight-ring {
+  padding: 1px;
+  background: radial-gradient(
+    220px circle at var(--sx, 50%) var(--sy, 50%),
+    oklch(0.82 0.125 82 / 0.6),
+    transparent 70%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+/* Cinematic edge falloff — pulls the eye to the lit centre of a section. */
+.depth-vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 90% at 50% 40%,
+    transparent 55%,
+    oklch(0.135 0.008 65 / 0.42) 100%
+  );
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px oklch(0.968 0.008 85 / 28%);
+  color: transparent;
+}
+
+.text-outline-gold {
+  -webkit-text-stroke: 1px oklch(0.82 0.125 82 / 45%);
+  color: transparent;
+}
+
+/* Blazer-red ghost words for light sections */
+.text-outline-red {
+  -webkit-text-stroke: 1px oklch(0.55 0.18 30 / 30%);
+  color: transparent;
+}
+
+.kicker {
+  @apply inline-flex items-center gap-2.5 font-mono text-[0.66rem] font-medium uppercase tracking-[0.28em];
+}
+
+/* Alignment-safe numerals for stats, dates and figures */
+.tabular {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Editorial drop cap — Fraunces initial in spotlight gold.
+   Apply to the FIRST paragraph of a story block. */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-fraunces);
+  font-weight: 600;
+  font-variation-settings: "SOFT" 78, "WONK" 1;
+  font-size: 3.1em;
+  line-height: 0.82;
+  padding-right: 0.12em;
+  padding-top: 0.06em;
+  color: var(--color-gold-600);
+}
+
+/* Blazer-red initial for light (snow/paper) grounds — same cut, school red. */
+.drop-cap-red::first-letter {
+  float: left;
+  font-family: var(--font-fraunces);
+  font-weight: 600;
+  font-variation-settings: "SOFT" 78, "WONK" 1;
+  font-size: 3.1em;
+  line-height: 0.82;
+  padding-right: 0.12em;
+  padding-top: 0.06em;
+  color: var(--color-crimson-600);
+}
+
+.gold-hr {
+  background: linear-gradient(
+    to right,
+    transparent,
+    oklch(0.76 0.14 76 / 55%),
+    transparent
+  );
+  height: 1px;
+}
+
+/* Red twin of gold-hr — award ribbons, band edges, white-section dividers */
+.red-hr {
+  background: linear-gradient(
+    to right,
+    transparent,
+    oklch(0.55 0.18 30 / 60%),
+    transparent
+  );
+  height: 1px;
+}
+
+/* Red gradient hairline for high-emphasis dividers on light grounds */
+.rule-gradient-red {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    oklch(0.47 0.16 29 / 65%),
+    oklch(0.55 0.18 30 / 14%) 55%,
+    transparent
+  );
+}
+
+/* The school ribbon — a slim red band with a white pinstripe, used as a
+   section edge marker (the blazer's lapel ribbon, abstracted). */
+.ribbon-band {
+  background:
+    linear-gradient(to right, oklch(0.47 0.16 29), oklch(0.55 0.18 30) 45%, oklch(0.38 0.14 28));
+  position: relative;
+}
+.ribbon-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 26px,
+      oklch(0.995 0.004 95 / 14%) 26px 28px
+    );
+  pointer-events: none;
+}
+
+.mask-fade-x {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+}
+
+.shine-text {
+  background: linear-gradient(
+    110deg,
+    oklch(0.87 0.095 86) 40%,
+    oklch(0.99 0.03 95) 50%,
+    oklch(0.87 0.095 86) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 4.5s linear infinite;
+}
+
+/* Slim gold scrollbar for dark scroll surfaces (dialogs, drawers) */
+.scroll-gold {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.76 0.14 76 / 35%) transparent;
+}
+.scroll-gold::-webkit-scrollbar {
+  width: 5px;
+}
+.scroll-gold::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-gold::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: oklch(0.76 0.14 76 / 30%);
+}
+.scroll-gold::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.76 0.14 76 / 55%);
+}
+
+/* Gold gradient hairline for high-emphasis dividers (kept for existing use) */
+.rule-gradient-gold {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    oklch(0.82 0.125 82 / 65%),
+    oklch(0.82 0.125 82 / 12%) 55%,
+    transparent
+  );
+}
+
+/* Anchor targets clear the fixed header (announcement bar + navbar ≈ 106px).
+   #top is excluded so the wordmark link still lands at the very top. */
+section[id]:not(#top),
+footer[id],
+main[id] {
+  scroll-margin-top: 6.75rem;
+}
