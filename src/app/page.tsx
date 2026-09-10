@@ -36,6 +36,11 @@ const SaTrust = dynamic(() => import("@/components/site/sa-trust").then((m) => m
 const SiteIndex = dynamic(() => import("@/components/site/site-index").then((m) => m.SiteIndex));
 import { MottoBand } from "@/components/site/brand-band";
 
+/* ISR: the front page is fully static HTML that quietly rebuilds every 5 min
+   (prod only — dev always renders fresh). The notice board itself stays live
+   via the client-side /api/events fetch, so nothing visible goes stale. */
+export const revalidate = 300;
+
 const schoolJsonLd = {
   "@context": "https://schema.org",
   "@type": "School",

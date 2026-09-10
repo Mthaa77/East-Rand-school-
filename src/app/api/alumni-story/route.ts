@@ -50,13 +50,17 @@ function rateLimited(ip: string): boolean {
   return entry.count > LIMIT;
 }
 
-// GET → approved stories only (public register). Cached 60s in-memory.
+// GET → approved stories only (public register). Cached 60s in-memory,
+// plus browser/CDN caching so repeat visits never wait on the network.
 let storyCache: { data: unknown; at: number } | null = null;
+const CACHE_HEADERS = {
+  "Cache-Control": "public, max-age=60, stale-while-revalidate=300",
+} as const;
 
 export async function GET() {
   try {
     if (storyCache && Date.now() - storyCache.at < 60_000) {
-      return NextResponse.json(storyCache.data);
+      return NextResponse.json(storyCache.data, { headers: CACHE_HEADERS });
     }
     const stories = await db.alumniStory.findMany({
       where: { status: "approved" },
@@ -66,7 +70,7 @@ export async function GET() {
     });
     const payload = { stories, count: stories.length };
     storyCache = { data: payload, at: Date.now() };
-    return NextResponse.json(payload);
+    return NextResponse.json(payload, { headers: CACHE_HEADERS });
   } catch (err) {
     console.error("[/api/alumni-story GET] failed:", err);
     return NextResponse.json({ error: "Could not load stories." }, { status: 500 });

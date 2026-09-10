@@ -178,14 +178,6 @@
       transform: scale(0.8);
     }
   }
-  @keyframes shimmer {
-    from {
-      background-position: -200% 0;
-    }
-    to {
-      background-position: 200% 0;
-    }
-  }
   /* Slow ambient drift for depth orbs (small translate + scale breathing) */
   @keyframes float-soft {
     0%,
@@ -676,20 +668,6 @@
 
 .vertical-text {
   writing-mode: vertical-rl;
-}
-
-.shine-text {
-  background: linear-gradient(
-    110deg,
-    oklch(0.87 0.095 86) 40%,
-    oklch(0.99 0.03 95) 50%,
-    oklch(0.87 0.095 86) 60%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shimmer 4.5s linear infinite;
 }
 
 /* Slim gold scrollbar for dark scroll surfaces (dialogs, drawers) */

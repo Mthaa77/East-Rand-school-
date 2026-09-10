@@ -285,7 +285,6 @@ export function Showcase() {
                       fill
                       sizes="(max-width: 1024px) 100vw, 1024px"
                       className="object-cover"
-                      priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-transparent to-transparent" />
                   </div>
