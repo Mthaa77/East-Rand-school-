@@ -45,11 +45,11 @@ export function SectionHeading({
       </Reveal>
       <h2
         className={cn(
-          "mt-5 font-display text-display-lg font-medium text-balance",
-          dark ? "text-ink-950" : "text-paper"
+          "heading-craft mt-5 font-display text-display-lg font-medium text-balance",
+          dark ? "heading-depth-light text-ink-950" : "heading-depth text-paper"
         )}
       >
-        <WordReveal text={title} accentWords={accentWords} accentClass={dark ? "text-crimson-500 italic font-light" : "text-gold-400 italic font-light"} />
+        <WordReveal text={title} accentWords={accentWords} accentClass={dark ? "text-crimson-500 italic font-light" : "text-gilded text-gilded-sheen italic font-light"} />
       </h2>
       {description && (
         <Reveal delay={0.15}>

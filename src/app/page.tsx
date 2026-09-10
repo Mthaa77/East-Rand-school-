@@ -11,6 +11,11 @@ import { Disciplines } from "@/components/site/disciplines";
    their full HTML (SEO intact), but their JS hydrates after the main bundle,
    cutting time-to-interactive on this 16-section page. Above-the-fold
    sections (Hero → Disciplines) stay in the first bundle. */
+const PrincipalsWelcome = dynamic(() =>
+  import("@/components/site/principals-welcome").then(
+    (m) => m.PrincipalsWelcome
+  )
+);
 const StageShowcase = dynamic(() =>
   import("@/components/site/stage-showcase").then((m) => m.StageShowcase)
 );
@@ -129,6 +134,8 @@ export default async function Home() {
       )}
       <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">
         <Hero />
+        {/* Cinematic welcome + the Principal's Desk message */}
+        <PrincipalsWelcome />
         {/* What "School of Specialisation" legally means — GDE-sourced facts */}
         <SosBand />
         <ProofBar />

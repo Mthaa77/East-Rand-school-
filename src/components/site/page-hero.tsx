@@ -77,11 +77,11 @@ export function PageHero({
           {kicker}
         </motion.p>
 
-        <h1 className="mt-5 max-w-4xl font-display text-display-xl font-medium text-paper">
+        <h1 className="heading-craft heading-depth-xl mt-5 max-w-4xl font-display text-display-xl font-medium text-paper">
           <WordReveal
             text={title}
             accentWords={accentWords}
-            accentClass="text-gold-400 italic font-light"
+            accentClass="text-gilded text-gilded-sheen italic font-light"
           />
         </h1>
 

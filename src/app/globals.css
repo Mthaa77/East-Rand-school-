@@ -373,6 +373,73 @@
   font-variation-settings: "SOFT" 60, "WONK" 1;
 }
 
+/* ── Cinematic heading craft ────────────────────────────────────────────
+   Typographic finishing for display headings: discretionary ligatures +
+   hanging punctuation, layered depth shadows, and a gilded gradient fill
+   with a slow light sheen for the words the school wants to keep lit. */
+.heading-craft {
+  font-feature-settings: "liga" 1, "kern" 1, "dlig" 1;
+  hanging-punctuation: first last;
+}
+
+/* Depth for headings on dark stages — a tight contact edge plus soft
+   ambient falls, with an optional gold halo in the xl cut. */
+.heading-depth {
+  text-shadow:
+    0 1px 1px oklch(0 0 0 / 0.22),
+    0 3px 10px oklch(0 0 0 / 0.16),
+    0 16px 44px oklch(0 0 0 / 0.24);
+}
+.heading-depth-xl {
+  text-shadow:
+    0 1px 0 oklch(0 0 0 / 0.28),
+    0 2px 5px oklch(0 0 0 / 0.18),
+    0 9px 20px oklch(0 0 0 / 0.2),
+    0 30px 72px oklch(0 0 0 / 0.34),
+    0 10px 46px oklch(0.76 0.14 76 / 0.12);
+}
+
+/* Companion cut for headings on light paper — a lift, not a glow. */
+.heading-depth-light {
+  text-shadow:
+    0 1px 0 oklch(1 0 0 / 0.6),
+    0 2px 3px oklch(0 0 0 / 0.06),
+    0 12px 28px oklch(0 0 0 / 0.1);
+}
+
+/* Gilded gradient type — reads as burnished gold, sheens slowly. */
+.text-gilded {
+  background-image: linear-gradient(
+    105deg,
+    oklch(0.93 0.05 92) 0%,
+    oklch(0.87 0.095 86) 30%,
+    oklch(0.72 0.12 72) 50%,
+    oklch(0.87 0.095 86) 70%,
+    oklch(0.93 0.05 92) 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-gilded-sheen {
+  animation: gold-sheen 8s ease-in-out infinite;
+}
+@keyframes gold-sheen {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .text-gilded-sheen {
+    animation: none;
+  }
+}
+
 /* Animated gold underline for inline editorial links (a11y-safe: visible
    at rest, warms on hover, respects large text offsets). */
 .link-editorial {

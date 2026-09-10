@@ -1,5 +1,6 @@
 import { Landmark, GraduationCap, ScrollText, ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
+import { RevealHeading } from "@/components/site/reveal-heading";
 import { SaFlag } from "@/components/site/sa-trust";
 
 /**
@@ -46,11 +47,14 @@ export function SosBand() {
                 <span className="h-px w-9 bg-gold-400" />
                 The GDE framework
               </p>
-              <h2 className="mt-4 font-display text-display-sm font-medium leading-tight text-balance text-paper">
+              <RevealHeading
+                as="h2"
+                className="heading-craft heading-depth mt-4 font-display text-display-sm font-medium leading-tight text-balance text-paper"
+              >
                 What a{" "}
-                <em className="font-light text-gold-300">School of Specialisation</em>{" "}
+                <em className="font-light text-gilded text-gilded-sheen">School of Specialisation</em>{" "}
                 means — and how long we&apos;ve meant it.
-              </h2>
+              </RevealHeading>
             </Reveal>
           </div>
 

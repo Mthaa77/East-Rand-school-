@@ -14,6 +14,7 @@ import {
   type MotionValue,
 } from "framer-motion";
 import { ArrowUpRight, ChevronDown, Clapperboard } from "lucide-react";
+import { RevealHeading } from "@/components/site/reveal-heading";
 
 /* ────────────────────────────────────────────────────────────────────────────
    THE PROGRAMME — "Five acts. One school."
@@ -317,9 +318,12 @@ export function StageShowcase() {
               <span className="h-px w-9 bg-gold-400" />
               The programme
             </p>
-            <h2 className="mt-5 font-display text-display-lg font-medium text-balance text-paper">
-              Five acts. <em className="font-display-wonk font-light italic text-gold-300">One school.</em>
-            </h2>
+            <RevealHeading
+              as="h2"
+              className="heading-craft heading-depth mt-5 font-display text-display-lg font-medium text-balance text-paper"
+            >
+              Five acts. <em className="font-display-wonk font-light italic text-gilded text-gilded-sheen">One school.</em>
+            </RevealHeading>
             <p className="font-editorial drop-cap mt-6 text-editorial text-paper/70">
               Each act is one of the five specialist disciplines — a full subject on the
               national curriculum, trained in the timetable and performed in public.
@@ -513,12 +517,15 @@ function Intro({
             <span className="h-px w-9 bg-gold-400" />
             The programme
           </p>
-          <h2 className="mt-5 font-display text-display-xl font-medium text-balance text-paper">
+          <RevealHeading
+            as="h2"
+            className="heading-craft heading-depth mt-5 font-display text-display-xl font-medium text-balance text-paper"
+          >
             Five acts.{" "}
-            <em className="font-display-wonk font-light italic text-gold-300">
+            <em className="font-display-wonk font-light italic text-gilded text-gilded-sheen">
               One school.
             </em>
-          </h2>
+          </RevealHeading>
           <p className="font-editorial drop-cap mt-7 max-w-xl text-editorial text-paper/75">
             Each act is one of the five specialist disciplines — a full subject on the
             national curriculum, trained inside the timetable and performed in public.

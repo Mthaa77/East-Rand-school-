@@ -51,10 +51,11 @@ export function WordReveal({
             <motion.span
               className={`inline-block will-change-transform ${accent ? accentClass : ""}`}
               variants={{
-                hidden: { y: "115%", rotate: 4 },
+                hidden: { y: "115%", rotate: 4, filter: "blur(7px)" },
                 show: {
                   y: "0%",
                   rotate: 0,
+                  filter: "blur(0px)",
                   transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
                 },
               }}

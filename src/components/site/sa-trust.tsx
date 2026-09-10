@@ -1,5 +1,6 @@
 import { Landmark, GraduationCap, ScrollText, Scale, MapPin, ChevronRight, ShieldCheck, Hand, University } from "lucide-react";
 import { Marquee } from "@/components/motion/marquee";
+import { RevealHeading } from "@/components/site/reveal-heading";
 import { cn } from "@/lib/utils";
 
 /**
@@ -131,11 +132,14 @@ export function SaTrust() {
               <SaFlag className="mr-1 size-5 rounded-[3px]" />
               Proudly South African education
             </p>
-            <h2 className="mt-5 font-display text-display-md font-medium leading-tight text-ink-950">
+            <RevealHeading
+              as="h2"
+              className="heading-craft heading-depth-light mt-5 font-display text-display-md font-medium leading-tight text-ink-950"
+            >
               A public school,{" "}
               <em className="font-light text-crimson-600">answerable</em> to
               its community.
-            </h2>
+            </RevealHeading>
             <p className="editorial mt-5 max-w-md text-ink-800/75">
               ERSA is part of the South African public education system — the
               same curriculum, the same matric certificate, the same

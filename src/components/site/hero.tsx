@@ -137,13 +137,13 @@ export function Hero() {
           </motion.div>
 
           {/* Headline */}
-          <h1 className="max-w-[13ch] font-display text-[clamp(2.7rem,4.7vw,5.6rem)] font-medium leading-[1.02] tracking-[-0.022em] text-balance text-paper">
+          <h1 className="heading-craft heading-depth-xl max-w-[13ch] font-display text-[clamp(2.7rem,4.7vw,5.6rem)] font-medium leading-[1.02] tracking-[-0.022em] text-balance text-paper">
             <WordReveal
               text="Where East Rand talent becomes craft, confidence & opportunity."
               delay={0.6}
               stagger={0.07}
               accentWords={["craft,", "confidence", "opportunity."]}
-              accentClass="text-gold-400 italic font-light"
+              accentClass="text-gilded text-gilded-sheen italic font-light"
             />
           </h1>
 

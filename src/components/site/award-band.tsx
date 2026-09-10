@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Award, CalendarDays, Megaphone, Trophy, Users } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
+import { RevealHeading } from "@/components/site/reveal-heading";
 import { ViewfinderCorners } from "@/components/site/viewfinder-corners";
 
 /**
@@ -97,12 +98,15 @@ export function AwardBand() {
                   <span className="h-px w-9 bg-snow/70" />
                   The newest receipt · Summer 2025/26
                 </p>
-                <h2 className="mt-5 max-w-2xl font-display text-display-lg font-medium leading-[1.05] text-balance text-snow">
+                <RevealHeading
+                  as="h2"
+                  className="heading-craft heading-depth mt-5 max-w-2xl font-display text-display-lg font-medium leading-[1.05] text-balance text-snow"
+                >
                   The work took a bow at{" "}
-                  <em className="font-display-wonk font-light italic text-gold-200">
+                  <em className="font-display-wonk font-light italic text-gilded text-gilded-sheen">
                     &ldquo;Be the Voice.&rdquo;
                   </em>
-                </h2>
+                </RevealHeading>
               </Reveal>
 
               <Reveal delay={0.12}>
