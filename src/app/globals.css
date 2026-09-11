@@ -87,24 +87,24 @@
   /* ── Fluid display type scale (Fraunces) ──
      Six steps from cinematic statement to card heading. Each step carries its
      own line-height + tracking so headlines tighten as they grow. */
-  --text-display-3xl: clamp(3.4rem, 2.6rem + 5.2vw, 9.5rem);
-  --text-display-3xl--line-height: 0.95;
-  --text-display-3xl--letter-spacing: -0.03em;
-  --text-display-2xl: clamp(2.85rem, 4.6rem + 3.4vw, 7.1rem);
-  --text-display-2xl--line-height: 0.98;
-  --text-display-2xl--letter-spacing: -0.026em;
-  --text-display-xl: clamp(2.6rem, 7.2vw, 6.2rem);
-  --text-display-xl--line-height: 1.02;
-  --text-display-xl--letter-spacing: -0.024em;
-  --text-display-lg: clamp(2.1rem, 5.4vw, 4.4rem);
-  --text-display-lg--line-height: 1.12;
-  --text-display-lg--letter-spacing: -0.02em;
-  --text-display-md: clamp(1.75rem, 3.6vw, 2.9rem);
-  --text-display-md--line-height: 1.15;
-  --text-display-md--letter-spacing: -0.015em;
-  --text-display-sm: clamp(1.35rem, 2.4vw, 1.9rem);
-  --text-display-sm--line-height: 1.2;
-  --text-display-sm--letter-spacing: -0.01em;
+  --text-display-3xl: clamp(3.25rem, 2.1rem + 5.4vw, 9.5rem);
+  --text-display-3xl--line-height: 0.94;
+  --text-display-3xl--letter-spacing: -0.035em;
+  --text-display-2xl: clamp(2.8rem, 2rem + 4.4vw, 7.1rem);
+  --text-display-2xl--line-height: 0.97;
+  --text-display-2xl--letter-spacing: -0.03em;
+  --text-display-xl: clamp(2.45rem, 1.9rem + 3.8vw, 6.2rem);
+  --text-display-xl--line-height: 1;
+  --text-display-xl--letter-spacing: -0.028em;
+  --text-display-lg: clamp(2rem, 1.7rem + 2.9vw, 4.4rem);
+  --text-display-lg--line-height: 1.08;
+  --text-display-lg--letter-spacing: -0.024em;
+  --text-display-md: clamp(1.7rem, 1.45rem + 1.7vw, 2.9rem);
+  --text-display-md--line-height: 1.13;
+  --text-display-md--letter-spacing: -0.018em;
+  --text-display-sm: clamp(1.3rem, 1.15rem + 1vw, 1.9rem);
+  --text-display-sm--line-height: 1.18;
+  --text-display-sm--letter-spacing: -0.012em;
 
   /* ── Fluid reading sizes (editorial serif + UI ledes) ── */
   --text-lede: clamp(1.05rem, 0.97rem + 0.35vw, 1.3rem);
@@ -233,6 +233,10 @@
   --sidebar-accent-foreground: oklch(0.968 0.008 85);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.76 0.14 76);
+  --divider-dark: oklch(0.76 0.14 76);
+  --divider-light: oklch(0.47 0.16 29);
+  --divider-crimson: oklch(0.995 0.004 95);
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @layer base {
@@ -249,6 +253,7 @@
     @apply bg-ink-950 text-paper font-sans antialiased;
     font-feature-settings: "liga" on, "calt" on;
     font-kerning: normal;
+    letter-spacing: -0.008em;
     text-rendering: optimizeLegibility;
     -webkit-text-size-adjust: 100%;
   }
@@ -263,6 +268,7 @@
   .font-display {
     font-optical-sizing: auto;
     font-variation-settings: "SOFT" 34, "WONK" 0;
+    letter-spacing: -0.014em;
   }
   .font-display em,
   .font-display i {
@@ -623,6 +629,68 @@
     transparent
   );
   height: 1px;
+}
+
+/* Premium transition markers keep long pages paced without adding hydration. */
+.section-divider {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  max-width: 96rem;
+  margin-inline: auto;
+  padding: clamp(1.35rem, 3vw, 2.5rem) clamp(1.25rem, 5vw, 4rem);
+  color: var(--divider-dark);
+}
+.section-divider--light {
+  color: var(--divider-light);
+}
+.section-divider--crimson {
+  color: var(--divider-crimson);
+}
+.section-divider__line {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in srgb, currentColor 52%, transparent)
+  );
+}
+.section-divider__line:last-child {
+  transform: rotate(180deg);
+}
+.section-divider__caption {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  white-space: nowrap;
+  font-size: 0.58rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+.section-divider__marker {
+  display: inline-block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 220ms var(--ease-premium), background-color 220ms var(--ease-premium);
+}
+.section-divider:hover .section-divider__marker {
+  background-color: currentColor;
+  transform: rotate(45deg) scale(1.25);
+}
+@media (max-width: 520px) {
+  .section-divider {
+    gap: 0.7rem;
+  }
+  .section-divider__caption {
+    gap: 0.5rem;
+    font-size: 0.52rem;
+    letter-spacing: 0.16em;
+  }
 }
 
 /* Red gradient hairline for high-emphasis dividers on light grounds */

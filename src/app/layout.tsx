@@ -33,9 +33,11 @@ const manrope = Manrope({
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+    variable: "--font-geist-mono",
+    subsets: ["latin"],
+    preload: false,
+  });
+
 
 // Newsreader — the editorial voice. Long-form reading, pull-quotes and ledes.
 // A calmer serif than Fraunces at text sizes, so Fraunces stays purely display.
@@ -115,7 +117,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className="dark"
+      className="dark bg-ink-950"
       suppressHydrationWarning
     >
       <body

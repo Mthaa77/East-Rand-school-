@@ -1,5 +1,7 @@
+import Image from "next/image";
 import { Landmark, GraduationCap, ScrollText, Scale, MapPin, ChevronRight, ShieldCheck, Hand, University } from "lucide-react";
 import { Marquee } from "@/components/motion/marquee";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { RevealHeading } from "@/components/site/reveal-heading";
 import { cn } from "@/lib/utils";
 
@@ -109,12 +111,44 @@ const languages = [
   { text: "Thobela", lang: "Sepedi" },
   { text: "Dumela", lang: "Setswana" },
   { text: "Lumela", lang: "Sesotho" },
-  { text: "Avuxeni", lang: "Xitsonga" },
+  { text: "Avuxeni", lang: "itsonga" },
   { text: "Sawubona", lang: "siSwati" },
   { text: "Ndaa", lang: "Tshivenda" },
   { text: "Lotjhani", lang: "isiNdebele" },
   { text: "Welcome", lang: "English" },
 ];
+
+const institutionalSignals = [
+  {
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/images%20%2824%29-OTELoD2E1SNyyjqaCdyCGezUzARfmb.jpeg",
+    alt: "Gauteng Department of Education mark",
+    label: "Gauteng education",
+    meta: "Provincial context",
+    blend: true,
+  },
+  {
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/download-KXWHhb0deBBnLxPvIMPzA4qGUHUf3I.png",
+    alt: "Gauteng provincial crest",
+    label: "Gauteng province",
+    meta: "Regional identity",
+    blend: false,
+  },
+  {
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/download%20%288%29-iNnHfFgxIxlXlMahAv2onUKvFggMn6.jpeg",
+    alt: "Coat of arms of the Republic of South Africa",
+    label: "Republic of South Africa",
+    meta: "National identity",
+    blend: true,
+  },
+  {
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/download%20%287%29-BJHX7QFkOa3exfjBHm6dJXrQSNgPWT.jpeg",
+    alt: "South African Department of Basic Education mark",
+    label: "Basic education",
+    meta: "National framework",
+    blend: true,
+  },
+] as const;
+
 
 export function SaTrust() {
   return (
@@ -254,6 +288,58 @@ export function SaTrust() {
               Registry references are available from the school office on
               request · Content last verified September 2026.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Institutional marks turn the abstract promise into a visible South African context. */}
+      <div className="mx-auto max-w-7xl px-5 pb-14 sm:px-8 lg:px-10 lg:pb-20">
+        <div className="overflow-hidden rounded-[2rem] bg-ink-950 text-paper shadow-panel">
+          <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:p-10">
+            <Reveal>
+              <p className="kicker text-gold-400">
+                <span className="size-1.5 rounded-full bg-crimson-400" />
+                Public trust, made visible
+              </p>
+              <h3 className="mt-4 max-w-md font-display text-display-sm font-medium leading-tight text-paper">
+                Rooted in the <em className="font-light italic text-gold-300">South African</em> education story.
+              </h3>
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-paper/60">
+                A premium arts education with a clear public identity — connected
+                to Gauteng, accountable to the national system and open to every
+                family we serve.
+              </p>
+              <div className="mt-6 flex items-center gap-3 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-paper/45">
+                <SaFlag className="size-6 rounded-[3px]" />
+                <span>Daveyton · Ekurhuleni · Gauteng</span>
+              </div>
+            </Reveal>
+
+            <Stagger className="grid grid-cols-2 gap-3 sm:grid-cols-4" stagger={0.07}>
+              {institutionalSignals.map((signal) => (
+                <StaggerItem key={signal.label} className="group">
+                  <div className="flex min-h-40 flex-col justify-between rounded-2xl border border-paper/10 bg-paper p-3.5 text-ink-950 shadow-card transition-[transform,box-shadow] duration-300 ease-out group-hover:-translate-y-1 group-hover:shadow-lift sm:min-h-48 sm:p-4">
+                    <div className="relative h-20 w-full sm:h-24">
+                      <Image
+                        src={signal.src}
+                        alt={signal.alt}
+                        fill
+                        sizes="(max-width: 640px) 42vw, (max-width: 1024px) 20vw, 180px"
+                        className={`object-contain object-center ${signal.blend ? "mix-blend-multiply" : ""}`}
+                      />
+                    </div>
+                    <div className="pt-4">
+                      <p className="font-display text-[0.84rem] font-semibold leading-tight sm:text-[0.92rem]">
+                        {signal.label}
+                      </p>
+                      <p className="mt-1 font-mono text-[0.52rem] font-medium uppercase tracking-[0.14em] text-ink-800/45">
+                        {signal.meta}
+                      </p>
+                    </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </Stagger>
           </div>
         </div>
       </div>
