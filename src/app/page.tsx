@@ -6,6 +6,7 @@ import { SosBand } from "@/components/site/sos-band";
 import { ProofBar } from "@/components/site/proof-bar";
 import { AwardBand } from "@/components/site/award-band";
 import { Disciplines } from "@/components/site/disciplines";
+import { SectionDivider } from "@/components/site/section-divider";
 
 /* Below-the-fold sections load as async chunks: the server still renders
    their full HTML (SEO intact), but their JS hydrates after the main bundle,
@@ -139,6 +140,7 @@ export default async function Home() {
       )}
       <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">
         <Hero />
+        <SectionDivider index="01" label="The welcome" />
         {/* Cinematic welcome + the Principal's Desk message */}
         <PrincipalsWelcome />
         {/* What "School of Specialisation" legally means — GDE-sourced facts */}
@@ -148,22 +150,31 @@ export default async function Home() {
         <AwardBand />
         {/* South African public-education trust signals */}
         <SaTrust />
+        <SectionDivider index="02" label="The public promise" tone="light" />
         {/* Each reusable section carries a link to its dedicated page. */}
         <Disciplines pageHref="/programmes" pageLabel="Open the programmes page" />
+        <SectionDivider index="03" label="Five acts" />
+
         {/* Cinematic pinned sequence — the five disciplines as five acts */}
         <StageShowcase />
+        <SectionDivider index="04" label="The point of practice" tone="crimson" />
         <Manifesto />
         <Method pageHref="/about" pageLabel="Open our story" />
         <LearnerLife pageHref="/about" pageLabel="More about school life" />
+        <SectionDivider index="05" label="A school in motion" tone="light" />
         {/* The school in its colours — snow-white contact sheet + catchment */}
         <Moments />
         <Showcase />
+        <SectionDivider index="06" label="Proof in the work" tone="light" />
         <Impact />
+
         <Alumni />
         <Events pageHref="/news" pageLabel="Open the notice board" />
         <Admissions pageHref="/admissions" pageLabel="Open the admissions page" />
+        <SectionDivider index="07" label="The next scene" tone="light" />
         {/* The official crest and motto — the seal on the front page */}
         <MottoBand />
+        <SectionDivider index="08" label="Keep exploring" />
         <SiteIndex />
       </main>
     </div>
