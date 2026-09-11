@@ -17,6 +17,13 @@ const nextConfig: NextConfig = {
        lazy below-fold copies of the same photo — keeps the LCP warning quiet
        and the hero crisp. */
     qualities: [75, 85],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "hebbkx1anhila5yf.public.blob.vercel-storage.com",
+        pathname: "/**",
+      },
+    ],
   },
   poweredByHeader: false,
 };
