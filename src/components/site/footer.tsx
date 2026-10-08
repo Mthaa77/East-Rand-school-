@@ -125,6 +125,9 @@ export function Footer() {
               Arts — where Daveyton and Benoni train their dancers, designers, actors,
               artists and musicians.
             </p>
+            <p className="mt-4 max-w-sm rounded-xl border border-gold-500/20 bg-gold-500/5 px-4 py-3 text-[0.66rem] leading-relaxed text-paper/50">
+              Concept website · Institutional information shown for demonstration and subject to ERSA verification.
+            </p>
             <p className="mt-4 font-mono text-[0.58rem] uppercase tracking-[0.26em] text-gold-500/80">
               Achievement through excellence — the school motto
             </p>

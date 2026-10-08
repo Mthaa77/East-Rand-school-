@@ -10,7 +10,7 @@ const stories = [
   {
     icon: GraduationCap,
     year: "2025",
-    title: "98.86% matric pass rate",
+    title: "98.9% matric pass rate",
     text: "87 of 88 candidates passed the National Senior Certificate — the strongest cohort in the school's recent record.",
   },
   {

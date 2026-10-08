@@ -15,7 +15,7 @@ export const faqs = [
   },
   {
     q: "Do learners still do normal academic subjects?",
-    a: "Yes. ERSA combines the full South African public-school curriculum with specialist arts learning. Academic classes run alongside discipline training — our 2025 matric cohort achieved a 98.86% NSC pass rate (87 of 88 candidates, third-party DBE data compilation).",
+    a: "Yes. ERSA combines the full South African public-school curriculum with specialist arts learning. Academic classes run alongside discipline training — our 2025 matric cohort achieved a 98.9% NSC pass rate (87 of 88 candidates, 2025 school-performance data pending ERSA sign-off).",
   },
   {
     q: "What documents should parents prepare?",

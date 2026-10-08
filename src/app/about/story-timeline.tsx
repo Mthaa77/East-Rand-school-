@@ -16,7 +16,7 @@ type Milestone = {
  * - 27 August 2019: documented GDE launch of ERSA / NSA / Pro-Arte Alphen Park
  *   as Performing & Creative Arts Schools of Specialisation, hosted at ERSA.
  * - Today: five disciplines (current public positioning), 567 learners /
- *   45 teachers (directory listing) and the 98.86% NSC pass rate reported for
+ *   45 teachers (directory listing) and the 98.9% NSC pass rate reported for
  *   the Class of 2025.
  */
 const MILESTONES: Milestone[] = [
@@ -33,7 +33,7 @@ const MILESTONES: Milestone[] = [
   {
     year: "Today",
     title: "The work behind the spotlight, daily",
-    body: "Five disciplines — Visual Arts, Design, Dramatic Arts, Dance Studies and Music — train 567 learners inside the full public curriculum, supported by 45 dedicated teachers. The Class of 2025 closed the year on a 98.86% NSC pass rate.",
+    body: "Five disciplines — Visual Arts, Design, Dramatic Arts, Dance Studies and Music — train 567 learners inside the full public curriculum, supported by 45 dedicated teachers. The Class of 2025 closed the year on a 98.9% NSC pass rate.",
     chips: ["567 learners", "45 teachers", "98.86% NSC · Class of 2025"],
   },
 ];

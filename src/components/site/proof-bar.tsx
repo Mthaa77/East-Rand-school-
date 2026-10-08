@@ -86,8 +86,8 @@ export function SectionHeading({
 
 const stats = [
   {
-    value: 98.86,
-    decimals: 2,
+    value: 98.9,
+    decimals: 1,
     suffix: "%",
     label: "2025 NSC pass rate",
     note: "87 of 88 matric candidates passed",
@@ -100,18 +100,19 @@ const stats = [
     note: "Visual Arts · Design · Drama · Dance · Music",
   },
   {
-    value: 567,
+    value: 1999,
     decimals: 0,
     suffix: "",
-    label: "Learners on register",
-    note: "Taught in classes of 10–15 · 45 teachers",
+    label: "Established",
+    note: "Rooted in Daveyton, Benoni",
   },
   {
-    value: 27,
+    value: 0,
     decimals: 0,
-    suffix: "+",
-    label: "Years on the East Rand",
-    note: "Rooted in Daveyton since 1999",
+    suffix: "",
+    label: "Based in Daveyton",
+    note: "Benoni · Ekurhuleni",
+    display: "Daveyton",
   },
 ];
 
@@ -143,7 +144,7 @@ export function ProofBar() {
                   0{i + 1}
                 </span>
                 <p className="font-display stat-figure tabular text-[2.9rem] font-semibold leading-none tracking-tight text-ink-950">
-                  <Counter value={s.value} decimals={s.decimals} suffix={s.suffix} />
+                  {s.display ?? <Counter value={s.value} decimals={s.decimals} suffix={s.suffix} />}
                 </p>
                 <p className="mt-3 text-[0.72rem] font-bold uppercase tracking-[0.2em] text-crimson-600">
                   {s.label}

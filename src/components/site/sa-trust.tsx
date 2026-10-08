@@ -90,7 +90,7 @@ const credentials = [
     icon: ScrollText,
     title: "National Senior Certificate",
     text: "Learners graduate with the NSC — the country's standard matric qualification.",
-    tag: "98.86% pass · 2025",
+    tag: "98.9% pass · 2025",
   },
   {
     icon: Scale,
