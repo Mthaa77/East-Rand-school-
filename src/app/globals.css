@@ -249,6 +249,7 @@
        and warns in dev when it is position:static — keep html non-static. */
     position: relative;
   }
+
   body {
     @apply bg-ink-950 text-paper font-sans antialiased;
     font-feature-settings: "liga" on, "calt" on;
@@ -480,7 +481,7 @@
   z-index: 1;
 }
 
-/* ─── Depth & layering utilities ─────────────────────────────────────── */
+/* ─── Depth & layering utilities ─���───────────────────────────────────── */
 
 /* Premium glass surface — warm smoked glass with a lit top edge. */
 .glass {
@@ -774,4 +775,22 @@ section[id]:not(#top),
 footer[id],
 main[id] {
   scroll-margin-top: 6.75rem;
+}
+
+@media (max-width: 767px) {
+  .grain::after,
+  .depth-vignette::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

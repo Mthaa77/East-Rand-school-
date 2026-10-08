@@ -5,8 +5,6 @@ import Image from "next/image";
 import {
   motion,
   useReducedMotion,
-  useScroll,
-  useTransform,
 } from "framer-motion";
 import { Clapperboard } from "lucide-react";
 
@@ -53,36 +51,16 @@ export function PrincipalsWelcome() {
   const screenRef = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
 
-  /* ACT I — the screen wakes as it reaches centre stage */
-  const { scrollYProgress: screenIn } = useScroll({
-    target: screenRef,
-    offset: ["start end", "center 0.42"],
-  });
-  const screenScale = useTransform(screenIn, [0, 1], [0.92, 1]);
-  const screenDim = useTransform(screenIn, [0, 1], [0.55, 0]);
-  const barTop = useTransform(screenIn, [0, 1], ["13%", "0%"]);
-  const barBottom = useTransform(screenIn, [0, 1], ["13%", "0%"]);
-  const sweepX = useTransform(screenIn, [0.15, 1], ["-130%", "430%"]);
-
-  /* section-long parallax for the crest inside the screen */
-  const { scrollYProgress: sectionTravel } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  const crestY = useTransform(sectionTravel, [0, 1], ["-5%", "5%"]);
-  const crestScale = useTransform(sectionTravel, [0, 1], [1.14, 1.2]);
-  const spotlight = useTransform(
-    sectionTravel,
-    [0.25, 0.55, 0.9],
-    [0, 0.9, 0.25]
-  );
+  /* Keep the welcome cinematic, but let the browser handle it with one-shot reveals.
+     Removing continuous scroll-linked transforms prevents several independent RAF loops
+     from competing while a visitor moves through the opening sequence. */
 
   return (
     <section
       id="welcome"
       ref={sectionRef}
       aria-label="A welcome from the Principal's desk"
-      className="relative overflow-hidden bg-ink-950 text-paper"
+      className="relative overflow-hidden bg-ink-950 text-paper [content-visibility:auto] [contain-intrinsic-size:0_1500px]"
     >
       {/* cinema light + vignette */}
       <div
@@ -91,7 +69,7 @@ export function PrincipalsWelcome() {
       />
       <motion.div
         aria-hidden="true"
-        style={{ opacity: reduce ? 0.4 : spotlight }}
+        style={{ opacity: reduce ? 0.4 : 0.72 }}
         className="pointer-events-none absolute inset-x-0 bottom-0 h-[60%] bg-[radial-gradient(46%_60%_at_50%_100%,oklch(0.76_0.14_76/0.12),transparent_72%)]"
       />
       <div
@@ -109,17 +87,14 @@ export function PrincipalsWelcome() {
         {/* ─────────── ACT I · THE SCREEN ─────────── */}
         <motion.div
           ref={screenRef}
-          style={{
-            scale: reduce ? undefined : screenScale,
-            transformPerspective: 1200,
-          }}
+          style={{ transformPerspective: 1200 }}
           className="group relative overflow-hidden rounded-xl border border-gold-300/25 bg-black shadow-[0_40px_120px_-30px_rgba(0,0,0,0.9)] will-change-transform"
         >
           <div className="relative aspect-[16/11] overflow-hidden sm:aspect-[21/9]">
             <motion.div
               style={{
-                y: reduce ? "0%" : crestY,
-                scale: reduce ? 1.05 : crestScale,
+                y: "0%",
+                scale: 1.05,
               }}
               className="absolute inset-0 will-change-transform"
             >
@@ -141,19 +116,19 @@ export function PrincipalsWelcome() {
             {/* projector light sweep */}
             <motion.div
               aria-hidden="true"
-              style={{ x: reduce ? undefined : sweepX }}
+              style={{ x: "0%" }}
               className="absolute inset-y-0 left-0 z-10 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/12 to-transparent"
             />
 
             {/* letterbox bars — the screen 'opens' as you arrive */}
             <motion.span
               aria-hidden="true"
-              style={{ height: reduce ? "0%" : barTop }}
+              style={{ height: reduce ? "0%" : "0%" }}
               className="absolute inset-x-0 top-0 z-20 bg-black"
             />
             <motion.span
               aria-hidden="true"
-              style={{ height: reduce ? "0%" : barBottom }}
+              style={{ height: reduce ? "0%" : "0%" }}
               className="absolute inset-x-0 bottom-0 z-20 bg-black"
             />
 

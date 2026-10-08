@@ -36,7 +36,7 @@ export function HomepageOnboarding() {
   };
 
   return (
-    <section aria-labelledby="onboarding-title" className="relative overflow-hidden bg-snow px-5 py-20 text-ink-950 sm:px-8 lg:px-12 lg:py-28">
+    <section aria-labelledby="onboarding-title" className="relative overflow-hidden bg-snow px-5 py-20 text-ink-950 [content-visibility:auto] [contain-intrinsic-size:0_760px] sm:px-8 lg:px-12 lg:py-28">
       <div aria-hidden="true" className="pointer-events-none absolute -right-24 top-12 size-72 rounded-full bg-gold-400/20 blur-3xl" />
       <div aria-hidden="true" className="pointer-events-none absolute -left-24 bottom-0 size-80 rounded-full bg-crimson-500/10 blur-3xl" />
       <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-20">
