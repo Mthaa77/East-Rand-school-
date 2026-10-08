@@ -38,11 +38,6 @@ const checklist = [
     title: "Confirm",
     text: "The school confirms your audition slot, documents and arrival details.",
   },
-  {
-    n: "06",
-    title: "Join",
-    text: "Orientation, timetable, instruments and everything a new family needs.",
-  },
 ];
 
 const disciplineOptions = [
@@ -164,9 +159,9 @@ export function Admissions({
       <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
         <SectionHeading
           dark
-          kicker="Admissions 2027"
-          title="Your next step, in six moves."
-          accentWords={["six", "moves."]}
+          kicker="Admissions & auditions"
+          title="Your next step, in five moves."
+          accentWords={["five", "moves."]}
           description="ERSA admits through an audition or placement test in your chosen discipline. The GDE portal handles the application — the school handles the art."
           pageHref={pageHref}
           pageLabel={pageLabel}

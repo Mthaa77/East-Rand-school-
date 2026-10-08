@@ -39,7 +39,7 @@ export function Counter({
 
   return (
     <span ref={ref} className={className} aria-label={`${prefix}${value}${suffix}`}>
-      {prefix}0{suffix}
+      {prefix}{value.toFixed(decimals)}{suffix}
     </span>
   );
 }

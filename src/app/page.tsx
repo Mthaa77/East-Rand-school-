@@ -34,6 +34,7 @@ const Admissions = dynamic(() =>
   import("@/components/site/admissions").then((m) => m.Admissions)
 );
 const SaTrust = dynamic(() => import("@/components/site/sa-trust").then((m) => m.SaTrust));
+const Ersa2026 = dynamic(() => import("@/components/site/ersa-2026").then((m) => m.Ersa2026));
 const SiteIndex = dynamic(() => import("@/components/site/site-index").then((m) => m.SiteIndex));
 import { MottoBand } from "@/components/site/brand-band";
 
@@ -150,6 +151,7 @@ export default async function Home() {
         <AwardBand />
         {/* South African public-education trust signals */}
         <SaTrust />
+        <Ersa2026 />
         <SectionDivider index="02" label="The public promise" tone="light" />
         {/* Each reusable section carries a link to its dedicated page. */}
         <Disciplines pageHref="/programmes" pageLabel="Open the programmes page" />

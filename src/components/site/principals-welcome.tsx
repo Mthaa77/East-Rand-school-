@@ -189,7 +189,7 @@ export function PrincipalsWelcome() {
             className="flex items-center justify-center gap-3 text-[0.65rem] font-bold uppercase tracking-[0.32em] text-gold-300/90 sm:text-[0.7rem]"
           >
             <Clapperboard aria-hidden="true" className="size-3.5" />
-            From the Principal&rsquo;s Desk
+            Official message from the Principal
           </motion.p>
 
           <h2

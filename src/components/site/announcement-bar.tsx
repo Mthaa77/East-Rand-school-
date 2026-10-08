@@ -3,12 +3,12 @@
 import { Marquee } from "@/components/motion/marquee";
 
 const items = [
-  "2027 Grade 8 admissions — GDE online applications open",
+  "2027 Admissions · Placement & enrolment information",
   "The audition is the entrance exam — potential is trained here",
   "Gauteng Art winner — Mpho Moloi takes the R5 000 board at “Be the Voice”",
   "Five specialist disciplines: Visual Arts · Design · Dramatic Arts · Dance Studies · Music",
-  "98.86% NSC pass rate — Class of 2025",
-  "Sawubona · Molo · Goeiedag · Thobela · Ndaa — twelve languages, one welcome",
+  "98.9% NSC pass rate — 87 of 88 candidates passed in 2025",
+  "South Africa's 12 official languages. One school community.",
   "1 Jones Street, Daveyton, Benoni",
 ];
 

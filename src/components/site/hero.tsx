@@ -174,12 +174,12 @@ export function Hero() {
               Explore the five disciplines
               <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
             </a>
-            <Link
-              href="/admissions"
-              className="group inline-flex items-center gap-3 rounded-full border border-paper/25 bg-ink-950/40 px-7 py-4 text-[0.72rem] font-bold uppercase tracking-[0.2em] text-paper backdrop-blur-sm transition-all duration-300 hover:border-gold-400 hover:text-gold-300"
-            >
-              How to apply
-            </Link>
+              <Link
+                href="/admissions"
+                className="group inline-flex items-center gap-3 rounded-full border border-paper/25 bg-ink-950/40 px-7 py-4 text-[0.72rem] font-bold uppercase tracking-[0.2em] text-paper backdrop-blur-sm transition-all duration-300 hover:border-gold-400 hover:text-gold-300"
+              >
+                Admissions &amp; auditions
+              </Link>
           </motion.div>
 
           {/* Stat strip */}
@@ -192,7 +192,7 @@ export function Hero() {
             {[
               ["5", "Specialist disciplines", "text-gold-300"],
               ["Since 1999", "Daveyton · Benoni", "text-crimson-300"],
-              ["12", "Official languages welcome", "text-gold-300"],
+              ["12", "Official languages. One community.", "text-gold-300"],
             ].map(([v, l, accent]) => (
               <div key={l} className="flex items-baseline gap-3">
                 <span className={`font-display stat-figure text-2xl font-semibold tabular ${accent}`}>
