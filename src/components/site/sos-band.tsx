@@ -36,7 +36,7 @@ export function SosBand() {
     <section
       id="gde-framework"
       aria-label="What a School of Specialisation means"
-      className="relative border-y border-paper/10 bg-ink-900 sheen-top"
+      className="relative border-y border-paper/10 bg-ink-900 sheen-top [content-visibility:auto] [contain-intrinsic-size:0_520px]"
     >
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-8">

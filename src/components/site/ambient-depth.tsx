@@ -1,12 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useReducedMotion,
-} from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 /**
@@ -28,23 +22,11 @@ export function AmbientDepth({
   variant?: "duo" | "trio";
   float?: boolean;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  // Each layer gets its own speed — the core of the parallax depth illusion.
-  const y1 = useTransform(scrollYProgress, [0, 1], [70, -70]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [120, -110]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [40, -40]);
-
   const drift = float && !reduce ? "animate-float-soft" : "";
 
   return (
     <div
-      ref={ref}
       aria-hidden="true"
       className={cn(
         "pointer-events-none absolute inset-0 overflow-hidden",
@@ -53,12 +35,12 @@ export function AmbientDepth({
     >
       {/* gold key light — upper left, nearest the "stage lamp" */}
       <motion.div
-        style={reduce ? undefined : { y: y1 }}
+        style={undefined}
         className="absolute -left-36 top-[8%] size-[26rem] rounded-full bg-gold-500/12 blur-[130px] animate-breathe"
       />
       {/* crimson rim light — mid right, further away */}
       <motion.div
-        style={reduce ? undefined : { y: y2 }}
+        style={undefined}
         className={cn(
           "absolute -right-28 top-[48%] size-[22rem] rounded-full bg-crimson-500/10 blur-[120px]",
           drift
@@ -66,7 +48,7 @@ export function AmbientDepth({
       />
       {variant === "trio" && (
         <motion.div
-          style={reduce ? undefined : { y: y3 }}
+          style={undefined}
           className="absolute left-[38%] -bottom-32 size-[30rem] rounded-full bg-paper/[0.045] blur-[140px] animate-breathe [animation-delay:3s]"
         />
       )}

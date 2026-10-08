@@ -83,7 +83,7 @@ export function Hero() {
       onPointerMove={onPointerMove}
       id="top"
       aria-label="East Rand School of the Arts — hero"
-      className="relative overflow-hidden bg-ink-950 grain"
+      className="relative overflow-hidden bg-ink-950 grain [contain:layout_paint]"
     >
       {/* ── Dark stage backdrop (the learners are the light) ── */}
       <div aria-hidden="true" className="absolute inset-0">
