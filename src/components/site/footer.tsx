@@ -98,6 +98,34 @@ export function Footer() {
         <NewsletterSignup />
       </div>
 
+      {/* Concept attribution */}
+      <div className="mx-auto max-w-7xl px-5 pt-10 sm:px-8 lg:px-10">
+        <div className="relative overflow-hidden rounded-2xl border border-gold-500/20 bg-gradient-to-r from-gold-500/[0.08] via-paper/[0.04] to-crimson-700/[0.12] px-5 py-4 shadow-[0_18px_45px_-32px_rgba(0,0,0,0.9)] sm:px-6">
+          <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-gold-300 via-gold-500 to-crimson-600" />
+          <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+            <div>
+              <p className="font-mono text-[0.58rem] font-semibold uppercase tracking-[0.26em] text-gold-300/90">
+                Concept experience
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-paper/65">
+                A premium digital concept for East Rand School of the Arts.
+              </p>
+            </div>
+            <a
+              href="https://carterdigitals.co.za/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-paper transition-colors hover:text-gold-300"
+            >
+              <span className="border-b border-gold-500/50 pb-0.5 transition-colors group-hover:border-gold-300">
+                Designed by Carter Digitals
+              </span>
+              <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* Main footer */}
       <div className="mx-auto max-w-7xl px-5 pb-10 pt-14 sm:px-8 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-12">
