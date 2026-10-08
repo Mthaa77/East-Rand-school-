@@ -34,7 +34,7 @@ const MILESTONES: Milestone[] = [
     year: "Today",
     title: "The work behind the spotlight, daily",
     body: "Five disciplines — Visual Arts, Design, Dramatic Arts, Dance Studies and Music — train 567 learners inside the full public curriculum, supported by 45 dedicated teachers. The Class of 2025 closed the year on a 98.9% NSC pass rate.",
-    chips: ["567 learners", "45 teachers", "98.86% NSC · Class of 2025"],
+    chips: ["567 learners", "45 teachers", "98.9% NSC · Class of 2025"],
   },
 ];
 

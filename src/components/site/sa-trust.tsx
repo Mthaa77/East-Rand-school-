@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
  * credible to local families: GDE registration, the specialisation status,
  * the NSC school-leaving qualification and the legal framework that governs
  * admissions. Everything here is a system fact of South African public
- * schooling or published ERSA data (98.86% · Class of 2025).
+ * schooling or published ERSA data (98.9% · Class of 2025).
  */
 
 /** Simplified flat South African flag (stroke-built Y and hoist triangle). */
@@ -344,10 +344,10 @@ export function SaTrust() {
         </div>
       </div>
 
-      {/* Twelve languages, one welcome — the national accent as a moving band */}
+      {/* South Africa's multilingual context — without implying ERSA operates in every language */}
       <div className="border-t border-ink-950/10 bg-paper py-9">
         <p className="mb-6 text-center text-[0.62rem] font-bold uppercase tracking-[0.32em] text-ink-800/45">
-          One school · Twelve official languages
+          South Africa · 12 official languages
         </p>
         <div className="mask-fade-x">
           <Marquee speed="slow" pauseOnHover>

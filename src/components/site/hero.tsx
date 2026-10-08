@@ -348,7 +348,7 @@ export function Hero() {
                   </span>
                   <span>
                     <span className="font-display stat-figure block text-xl font-semibold leading-none text-gold-300 tabular">
-                      98.86%
+                      98.9%
                     </span>
                     <span className="mt-1 block text-[0.55rem] uppercase tracking-[0.2em] text-paper/55">
                       Class of 2025 · NSC pass

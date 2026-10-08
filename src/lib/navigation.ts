@@ -37,7 +37,7 @@ export const SITE_PAGES: SitePage[] = [
     path: "/admissions",
     label: "Admissions",
     short: "Admissions",
-    description: "Audition-based entry for 2027 — the journey, requirements and enquiry form.",
+    description: "Audition-based entry — the journey, requirements and enquiry form.",
     image: "/images/page-admissions.webp",
     imageAlt: "A learner auditioning under a single golden spotlight before adjudicators",
   },
