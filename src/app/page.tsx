@@ -7,6 +7,7 @@ import { ProofBar } from "@/components/site/proof-bar";
 import { AwardBand } from "@/components/site/award-band";
 import { Disciplines } from "@/components/site/disciplines";
 import { SectionDivider } from "@/components/site/section-divider";
+import { HomepageOnboarding } from "@/components/site/homepage-onboarding";
 
 /* Below-the-fold sections load as async chunks: the server still renders
    their full HTML (SEO intact), but their JS hydrates after the main bundle,
@@ -141,6 +142,7 @@ export default async function Home() {
       )}
       <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">
         <Hero />
+        <HomepageOnboarding />
         <SectionDivider index="01" label="The welcome" />
         {/* Cinematic welcome + the Principal's Desk message */}
         <PrincipalsWelcome />
